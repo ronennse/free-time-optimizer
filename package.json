@@ -1,0 +1,47 @@
+{
+  "name": "free-time-optimizer",
+  "version": "1.0.0",
+  "description": "An application that helps users make the most out of their free time by intelligently scheduling activities",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
+    "test": "jest",
+    "test:backend": "jest --testPathPattern=backend",
+    "test:frontend": "jest --testPathPattern=frontend"
+  },
+  "keywords": [
+    "time management",
+    "scheduling",
+    "productivity",
+    "calendar",
+    "activities"
+  ],
+  "author": "Free Time Optimizer Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^92.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^6.3.0",
+    "jest": "^27.4.7",
+    "mongodb-memory-server": "^8.0.4",
+    "nodemon": "^2.0.14",
+    "supertest": "^6.1.6"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

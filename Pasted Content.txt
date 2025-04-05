@@ -1,0 +1,271 @@
+Create a project called Free Time Optimizer App Development, refer to the following documents:
+Project Requirements: # Project Requirements Document (PRD) for Free Time Maximizer App
+
+## 1. Project Overview
+
+This project is about building an application that helps users make the most out of their free time by intelligently scheduling activities. The app will collect a variety of users' interests—like exercise routines, TV series, books, social activities, and more—and then use this information to suggest the most appropriate activity for any available free time slot. It seamlessly integrates with Google Calendar to fetch existing time slots, ensuring that the suggestions fit within the user’s real-world schedule.
+
+The primary goal is to maximize personal productivity and leisure by striking a balance between various interests. By automatically adapting plans based on changes in available time and recent activity history, the app aims to reduce scheduling hassles and help users enjoy a well-rounded lifestyle. The key objectives include providing a user-friendly smart scheduling system, supporting multiple tenants with personalized profiles, and offering flexible activity planning and adaptation while following a modern and minimalistic design approach.
+
+## 2. In-Scope vs. Out-of-Scope
+
+### In-Scope
+
+*   User authentication including multi-tenant support and personalized profiles.
+*   Input interface allowing users to add interests and activities using both preset options and custom entries.
+*   Calendar integration with Google Calendar for automatic free time detection.
+*   Intelligent activity suggestion engine that takes into account the length of free time available, time of day, and recent user activities.
+*   Adaptive scheduling that can adjust planned activities dynamically (e.g., compressing a two-hour workout to one hour).
+*   Customizable prioritization rules with a default balanced recommendation.
+*   Notifications and reminders to inform users of upcoming free time slots and scheduled activities.
+*   A modern, minimalistic user interface that is easy to navigate.
+
+### Out-of-Scope
+
+*   Integration with other calendar services besides Google Calendar (e.g., Outlook).
+*   Advanced social or group scheduling features beyond individual user planning.
+*   In-depth analytics or reporting dashboards for tracking long-term user performance.
+*   Offline functionality or local calendar synchronization (only online, calendar-driven scheduling is in scope).
+*   Extensive custom branding options beyond a modern, minimalistic design.
+
+## 3. User Flow
+
+A new user starts by visiting the modern, welcoming landing page where they can choose to register or log in. After registration, the user sets up their profile by entering personal preferences, selecting preset interests (like exercising, learning, or watching TV), and adding any custom activities. Once their profile is created, the user can either manually input available free time or connect the app to their Google Calendar to automatically discover open time slots. The interface clearly displays sections for profile setup, interest input, and scheduling options.
+
+Once the free time is identified, the app reviews the user's list of interests along with recent activity history to suggest an optimal activity. If the situation changes (for example, a previously planned two-hour workout needs adjustment because only one hour is now available), the system intelligently adapts the plan by prioritizing key exercises. The user reviews the suggested plan, with clear options to accept, modify, or reschedule the activity. Throughout the process, notifications inform the user of upcoming scheduled activities or any last-minute changes, ensuring continuous adaptation and seamless management of free time.
+
+## 4. Core Features (Bullet Points)
+
+*   **User Authentication & Multi-Tenant Architecture**:
+
+    *   Secure registration and login.
+    *   Each user has a personalized profile.
+    *   Supports multiple tenants with isolated, custom data.
+
+*   **Interest Input & Activity Customization**:
+
+    *   Users can select from presets (exercise, TV series, books, family time, social events, news, etc.).
+    *   Option to add custom activities with details like duration, preferred timing, and custom priority rules.
+
+*   **Calendar Integration & Free Time Detection**:
+
+    *   Integration with Google Calendar to automatically fetch free time slots.
+    *   Option for manual input of free time blocks.
+
+*   **Intelligent Activity Suggestion Engine**:
+
+    *   Analyzes available free time, time of day, and historical activities.
+    *   Adapts suggestions dynamically, such as compressing plans when time is reduced.
+    *   Default balanced prioritization with customizable rules for each user.
+
+*   **Dynamic Scheduling & Adaptive Planning**:
+
+    *   Ability to adjust planned activities in real-time based on unexpected schedule changes.
+    *   Detailed view for reviewing, modifying, or re-scheduling suggested activities.
+
+*   **Notifications & Reminders**:
+
+    *   Proactive alerts for upcoming free time slots or scheduled activities.
+    *   Reminders to keep users informed and prompt engagement.
+
+*   **Modern & Minimalistic User Interface**:
+
+    *   Clean, easy-to-navigate design.
+    *   Emphasis on simplicity and clarity to reduce cognitive load while planning activities.
+
+## 5. Tech Stack & Tools
+
+*   **Frontend**:
+
+    *   Likely using React for building a responsive and dynamic interface.
+    *   Integration with Lovable.dev for AI-generated front-end code.
+
+*   **Backend**:
+
+    *   Node.js with Express for handling requests and APIs.
+    *   MongoDB as the database for storing user interests, preferences, and scheduling data.
+    *   JWT authentication for secure user sessions.
+
+*   **Calendar Integration**:
+
+    *   Google Calendar API to fetch and interact with user calendar data.
+
+*   **AI and Automation Tools**:
+
+    *   Utilization of AI models (like GPT-4o) in generating front-end and possibly backend code workflows.
+    *   Cursor IDE and Windsurf IDE for real-time coding suggestions and development efficiency.
+    *   Replit for online collaborative coding when needed.
+
+*   **Other Integration Tools**:
+
+    *   Lovable.dev AI to assist in automating parts of the development process.
+
+## 6. Non-Functional Requirements
+
+*   **Performance**:
+
+    *   The application should load pages within a few seconds under normal conditions with a target response time of below 2 seconds for most interactions.
+    *   The recommendation engine should process scheduling and adaptive planning in near-real time.
+
+*   **Security**:
+
+    *   Use secure authentication (JWT).
+    *   Each tenant’s data must remain isolated to ensure privacy.
+    *   Communication between the app and Google Calendar API should be encrypted.
+
+*   **Compliance**:
+
+    *   Adhere to data protection standards relevant to handling personal schedules and interests.
+    *   Ensure proper user consent for calendar integrations.
+
+*   **Usability**:
+
+    *   The interface must be clean, modern, and minimalistic.
+    *   Ensure consistency in navigation and a responsive design for various devices.
+    *   Focus on an intuitive user journey from sign-up to planning activities.
+
+## 7. Constraints & Assumptions
+
+*   **Constraints**:
+
+    *   Integration is currently limited to Google Calendar; other calendar services are not in scope initially.
+    *   Dependency on third-party APIs (Google Calendar API) which might have rate limits and require appropriate configuration.
+    *   Multi-tenant architecture must ensure strict data isolation, potentially impacting design complexity.
+
+*   **Assumptions**:
+
+    *   Users have an active Google account and grant permission for calendar integration.
+    *   Users are interested in both pre-defined and custom activities to manage free time.
+    *   Users appreciate a modern, minimal approach to scheduling that is both adaptable and intelligent.
+    *   The target environment will support Node.js and React deployments, along with associated services (MongoDB, JWT, etc.).
+
+## 8. Known Issues & Potential Pitfalls
+
+*   **API Rate Limits & Downtime**:
+
+    *   The Google Calendar API may have rate limits or experience downtime, which could impact scheduling accuracy.
+    *   Mitigation: Implement caching strategies and graceful error handling to notify the user of temporary issues.
+
+*   **Dynamic Activity Adjustment Complexity**:
+
+    *   Adapting an activity (e.g., reducing a two-hour workout to one hour) may be challenging to implement for diverse activity types.
+    *   Mitigation: Start with a simplified adjustment model for key activities and gradually expand complexity.
+
+*   **Multi-Tenant Data Isolation**:
+
+    *   Ensuring complete data isolation between multiple tenants may increase the architectural complexity.
+    *   Mitigation: Leverage established patterns and libraries for multi-tenancy on both the backend and database levels.
+
+*   **User Preference Conflicts**:
+
+    *   Allowing both default and custom prioritization might result in conflicting rules.
+    *   Mitigation: Provide clear UI and backend logic that merges defaults with user-defined rules, ensuring predictable outcomes.
+
+*   **Real-time Adaptation**:
+
+    *   The system’s real-time responsiveness may suffer under heavy loads if the recommendation engine is not optimized.
+    *   Mitigation: Use efficient algorithms and consider load testing early in the development cycle.
+
+This document serves as the main reference for building the Free Time Maximizer App. It covers all the functional areas and identifies challenges upfront, ensuring a clear path forward for further detailed technical documents, interface rules, and ultimately, the final implementation.
+
+App Flow: # App Flow Document
+
+## Onboarding and Sign-In/Sign-Up
+
+When a brand-new user visits the application, they are greeted with a modern and minimalistic landing page that instantly provides an overview of the app’s purpose and benefits. The landing page explains that the app is designed to help users maximize their free time by digesting a wide range of interests such as exercising, meeting friends, learning, watching TV series and movies, and spending quality time with family. New users are encouraged to create an account. The registration process allows for sign-up using an email address or social login methods if available. After entering the required credentials, the user is guided to complete basic profile setup where they input their interests and set initial prioritization rules. Once registered, users can sign in with their credentials or by using a social login. There is also an option to recover lost passwords through a “Forgot Password” flow that typically involves sending a recovery link to the registered email. When signed in, users have the option to sign out gracefully via a clearly marked sign-out button that is accessible from every page, ensuring that their session can be ended safely and securely.
+
+## Main Dashboard or Home Page
+
+After completing the onboarding process, users are directed to the main dashboard, which serves as the central hub for all activities. The dashboard is designed with clarity and simplicity in mind, showcasing a header at the top, a sidebar for navigation, and a central area that displays upcoming free time suggestions and recently used features. Users see sections for activity inputs, calendar integration status, and notifications for upcoming free time opportunities or adjustments to scheduled plans. This page also features quick access to profile settings, activity logs, and customization options. Navigation between these major sections is seamless, with a menu that clearly shows how to move between scheduling, reviewing activity suggestions, and managing personal preferences.
+
+## Detailed Feature Flows and Page Transitions
+
+The application fully integrates the core features that help users plan and optimize their free time. Once the user is on the dashboard, they have the option to navigate to the interest input and activity detail section. Here, the user can choose from a library of preset activities like exercise, learning sessions, social meets, and media consumption, or add custom activities that reflect their unique interests. Each activity input includes details like preferred duration, time windows, and customization for priority. Once input is complete, users move to the scheduling interface where they can enter available free time manually or allow the app to connect to Google Calendar to automatically detect free slots. When a free time block is identified, for example, one hour available at 17:00, the app shows a dynamic overview of scheduled activities and any free time available. The most notable feature here is the adaptive planning feature. If a user’s schedule unexpectedly changes, such as a planned two-hour workout becoming a one-hour session, the application intelligently recalibrates by suggesting the most important elements of the activity and re-prioritizing activities like meeting friends or catching up on a TV series. In addition to the core flow, an advanced workflow may allow seasoned users to dive deeper into fine-tuning various activity parameters, custom priority rules, or even access a temporary administration panel to review activity logs and adjust recommendations. Transitioning between pages is smooth, with each action (whether adding an activity, scheduling free time, or reviewing a suggestion) ensuring that changes are immediately reflected in the user’s profile and dashboard without any disruption.
+
+## Settings and Account Management
+
+Users can manage their personal information and preferences through an easily accessible account management section that can be reached from the main dashboard. In this section, users update their profile details, define customization rules for activity prioritization, and adjust notification settings to ensure they receive timely reminders about upcoming schedules and free time opportunities. The settings page also facilitates calendar integration with Google Calendar; users can reconnect or adjust sync settings, ensuring the seamless integration of their real-world calendar events with the app’s planning engine. Additionally, users find subscription or billing details here if the app includes premium features or multi-tenant configurations meant for a broader audience. After adjusting settings, users can return to the main dashboard via clearly marked navigation options that ensure continuity of the overall app flow.
+
+## Error States and Alternate Paths
+
+The application is designed to handle errors gracefully. Should a user enter invalid data during registration or activity input, the app immediately displays clear error messages in plain language and highlights the problematic fields, ensuring the user can quickly correct any mistakes. In the case of connectivity issues or disruptions in calendar synchronization, fallback pages explain the situation and provide options to retry the connection or manually input data. When restricted actions are attempted, such as accessing certain features without the necessary permissions, the application informs the user with a polite message and offers alternative paths, such as guidance on upgrading their account or checking settings. Each error state is presented within the consistent visual design of the app, ensuring the user experience remains unified even in unexpected situations. The app further allows users to recover from errors without losing any progress, thereby maintaining a smooth flow from one task to the next.
+
+## Conclusion and Overall App Journey
+
+The entire journey of the application is structured to guide users from the initial discovery to efficient daily usage. Starting at the modern and welcoming landing page, users register or sign in with ease and set up their personalized interests and preferences. They are then introduced to a user-friendly main dashboard that consolidates all the essential features—ranging from free time scheduling, calendar integration to activity suggestion and adaptive planning. Detailed pages allow them to input, review, and adjust activity plans, with smart notifications keeping them informed of any schedule changes. With intuitive navigation between feature modules and robust account management options, the application ensures that users can comfortably plan, adapt, and make the most of their free time. In the end, every feature and page is crafted to offer a seamless, connected experience, ensuring that each interaction contributes to maximizing enjoyment and productivity during free time.
+
+Tech Stack: # Tech Stack Document
+
+This document explains the technology choices for our free time maximization app. It is designed in plain language so anyone can follow along and understand the main components of our project.
+
+## Frontend Technologies
+
+The app’s user interface is built using modern technologies that make it smooth, responsive, and visually attractive. Here’s what we’re using and why:
+
+*   **React**: A popular library for building dynamic and interactive user interfaces. It helps create a modern and minimalistic design that users will enjoy and find easy to navigate.
+*   **Styling Tools (CSS/SCSS)**: These ensure that the design remains clean and visually appealing, aligning with our goal of a modern, minimalistic look.
+
+Using React means we can deliver a seamless experience when users input their interests, view activity suggestions, and manage their profiles.
+
+## Backend Technologies
+
+The backend of the application handles all the heavy lifting. It manages data, applies the rules for scheduling activities, and ensures a smooth experience for multiple users. The technologies and tools we’re using include:
+
+*   **Node.js**: A JavaScript runtime that enables us to build a fast and scalable server-side application.
+*   **Express**: A web framework for Node.js that simplifies the creation of our server routes and APIs, making it easier to manage user activities, preferences, and scheduling logic.
+*   **MongoDB**: A NoSQL database that stores users’ profiles, activity details, scheduling information, and more. MongoDB is known for its flexibility and scalability, which is essential for handling data for multiple tenants.
+*   **JWT Authentication**: JSON Web Tokens help secure user sessions. They ensure that the right users can access their data, protecting profiles and personalized preferences.
+
+Together, these backend components work in harmony to support core features like multiple tenant support, dynamic scheduling, and easy access to user data.
+
+## Infrastructure and Deployment
+
+Our infrastructure and deployment plan ensure that the application is reliable, scalable, and easy to update. Key choices include:
+
+*   **Cloud Hosting Platforms**: We use reliable cloud services to host the app, which ensures uptime and scalability as user demand grows.
+*   **CI/CD Pipelines**: Continuous Integration and Continuous Deployment pipelines help automate testing and deployment. This makes sure our updates are stable and new features are released smoothly.
+*   **Version Control (Git and GitHub)**: These tools let our team collaborate efficiently and track changes in the codebase, ensuring that everyone works on the latest version of the app.
+
+These tools contribute to a smooth process for deploying updates, managing multiple versions, and ensuring that the app remains reliable under heavy use.
+
+## Third-Party Integrations
+
+To extend the functionality of our app without reinventing the wheel, we’re integrating some additional services:
+
+*   **Google Calendar API**: This integration allows the app to connect to Google Calendar, automatically detecting available free time slots and syncing schedules.
+*   **Lovable.dev AI**: This tool aids in generating a modern frontend and full-stack web components powered by artificial intelligence, speeding up development and enhancing features.
+
+These integrations make the app smarter and more useful by connecting it with the tools that users already rely on, such as Google Calendar, and leveraging AI to streamline app creation.
+
+## Security and Performance Considerations
+
+Keeping user data safe and ensuring the app runs smoothly is a top priority. Here are the steps we take:
+
+*   **JWT Authentication**: Helps securely manage user sessions, ensuring that only authorized users access personal data.
+*   **Data Protection**: Using secure communication protocols (like HTTPS) and robust database encryption ensures that all personal information is kept safe.
+*   **Performance Optimizations**: Efficient code practices, caching strategies, and load balancing ensure that users enjoy a responsive experience even as the number of users grows.
+
+These measures are in place to protect user data while maintaining fast and reliable app performance.
+
+## Additional Developer Tools
+
+While not directly part of the final code library, the project benefits from several developer-focused tools which improve productivity during development:
+
+*   **Cursor IDE**: Provides advanced coding suggestions in real-time, making it easier for developers to write high-quality code faster.
+*   **Windsurf IDE**: A modern Integrated Development Environment that integrates AI capabilities for smarter coding workflows.
+*   **Replit IDE**: An online development environment that allows the team to collaborate in real-time, ensuring our code stays up-to-date and accessible.
+
+These tools enable our developers to maintain a high standard of code and quick turnaround on changes or new features.
+
+## Conclusion and Overall Tech Stack Summary
+
+In summary, our technology choices reflect a well-balanced approach to developing a modern, reliable, and user-friendly free time management app:
+
+*   The **frontend** is built with React, ensuring a smooth and attractive interface.
+*   The **backend** leverages Node.js, Express, and MongoDB, with the addition of JWT for authentication and robust scheduling logic.
+*   **Infrastructure** decisions, including cloud hosting and CI/CD pipelines, provide the foundation for scalability and seamless updates.
+*   **Third-party integrations** like Google Calendar API and Lovable.dev AI enhance functionality and speed up development.
+*   Built-in **security and performance** features guarantee a safe and efficient experience for all users.
+*   Enhanced with advanced developer tools like Cursor IDE, Windsurf IDE, and Replit IDE, our team is equipped for fast, collaborative, and innovative development.
+
+Each component of our tech stack has been chosen to support the project’s overall goal: maximizing users' free time while providing flexibility, personalization, and a modern look and feel. This approach ensures that the app not only meets user needs but stands out with its intuitive and adaptive design.
